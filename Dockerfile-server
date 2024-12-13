@@ -1,0 +1,18 @@
+# Build the server image
+FROM node:20.17.0 AS server
+WORKDIR /app/server
+
+# Copy package.json and package-lock.json first to leverage Docker caching
+COPY app/server/package*.json ./
+RUN npm install
+RUN echo "Server dependencies installed"
+
+# Copy the rest of the server files
+COPY app/server/ ./
+RUN echo "Server files copied"
+
+# Expose the port for the server
+EXPOSE 5000
+
+# Run the server (ensure the correct start command in the server package.json)
+CMD ["npm", "run", "start"]

@@ -1,0 +1,22 @@
+# Build the client image
+FROM node:20.17.0 AS client
+
+WORKDIR /app/client
+
+# Copy package.json and package-lock.json for the client
+COPY app/client/package*.json ./
+RUN npm install
+RUN echo "Client dependencies installed"
+
+# Copy the client files
+COPY app/client/ ./
+RUN echo "Client files copied"
+
+# Build the client (this assumes a build script exists in the client package.json)
+RUN npm run build
+
+# Expose the port for the client
+EXPOSE 3000
+
+# Run the client (ensure the correct start command in the client package.json)
+CMD ["npm", "run", "start"]
