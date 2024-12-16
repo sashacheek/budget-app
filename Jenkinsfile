@@ -47,17 +47,6 @@ pipeline {
                 }
             }
         }
-
-        // Optional: Push to Docker registry
-        // stage('Push Docker Image') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('https://index.docker.io/v1/', 'docker-credentials-id') {
-        //                 docker.image("${DOCKER_IMAGE}").push()
-        //             }
-        //         }
-        //     }
-        // }
     }
 
     post {
