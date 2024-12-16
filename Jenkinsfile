@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_IMAGE_SERVER = 'budget-server:latest'
         DOCKER_IMAGE_CLIENT = 'budget-client:latest'
-        // DOCKER_REGISTRY = 'my-docker-repo' // Optional, if pushing to a Docker registry
     }
 
     stages {
@@ -12,11 +11,10 @@ pipeline {
             steps {
                 git branch: 'master', 
                     url: 'https://github.com/sashacheek/budget-app.git'
-                    // credentialsId: 'your-github-credentials-id'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build Server Docker Image') {
             steps {
                 script {
                     docker.build("${DOCKER_IMAGE_SERVER}", "-f Dockerfile-server .")
@@ -24,11 +22,28 @@ pipeline {
             }
         }
 
-        stage('Run Docker Container') {
+        stage('Run Server Docker Container') {
             steps {
                 script {
                     powershell 'if (docker ps -a --format "{{.Names}}" | Select-String -Pattern "budget-server") { docker rm -f budget-server }'
                     powershell "docker run -p 5000:5000 -d --name budget-server ${DOCKER_IMAGE_SERVER}"
+                }
+            }
+        }
+
+        stage('Build Client Docker Image') {
+            steps {
+                script {
+                    docker.build("${DOCKER_IMAGE_CLIENT}", "-f Dockerfile-client")
+                }
+            }
+        }
+
+        stage('Run Client Docker Container') {
+            steps {
+                script {
+                    powershell 'if (docker ps -a --format "{{.Names}}" | Select-String -Pattern "budget-client") { docker rm -f budget-client }'
+                    powershell "docker run -p 3000:3000 -d --name budget-client ${DOCKER_IMAGE_CLIENT}"
                 }
             }
         }
@@ -47,7 +62,7 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline completed!'
+            echo 'Started budget app'
         }
     }
 }
