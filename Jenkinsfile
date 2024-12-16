@@ -34,7 +34,7 @@ pipeline {
         stage('Build Client Docker Image') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE_CLIENT}", "-f Dockerfile-client")
+                    docker.build("${DOCKER_IMAGE_CLIENT}", "-f Dockerfile-client .")
                 }
             }
         }
