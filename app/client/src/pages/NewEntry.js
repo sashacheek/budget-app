@@ -31,22 +31,15 @@ function NewEntry() {
             localStorage.setItem("spendingData", JSON.stringify(existingData));
 
             alert("New entry added");
-            // let category = localStorage.getItem("date");
-            // console.log(category);
-            // const {data} = await axios.post("/entry", formData, {
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     }
-            // });
         } catch (error) {
             console.error("Error:", error.message);
         }
     }
 
 return (
-<div id="entry">
+<div id="entry" className="content-container">
     <h1>New Entry</h1>
-    <form className="content-container" id="new-entry" method="post" onSubmit={handleSubmit}>
+    <form className="form-container" id="new-entry" method="post" onSubmit={handleSubmit}>
         <input placeholder="Amount" name="amount" id="amount" value={formData.amount} onChange={handleChange}/>
         <div>
         <div className="select-style">

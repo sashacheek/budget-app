@@ -9,6 +9,7 @@ return (
         <h1>Data page</h1>
         <PieWeek />
         <PieMonth />
+        <Link to="/edit" className="button-style button-small">Edit Data</Link>
         <Link to="/" className="button-style button-small">&larr; go back</Link>
     </ div>
 )
