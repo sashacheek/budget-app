@@ -50,7 +50,14 @@ return (
                 <option>Bills</option>
             </select>
         </div>
-        <button className="button-style button-small">+ category</button>
+        <div className="two-buttons">
+        <button className="button-style button-small" type="button">+ category</button>
+        <button className="button-style button-small" type="button">- category</button>
+        </div>
+        {/* <form className="form-container">
+            <input placeholder="Category"></input>
+            <span>$</span>
+        </form> */}
         </div>
         <div>
             <button type="submit" className="button-style">Submit</button>

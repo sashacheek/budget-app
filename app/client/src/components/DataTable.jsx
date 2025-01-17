@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DataTable = () => {
     let [data, setData] = React.useState(JSON.parse(localStorage.getItem("spendingData")));
@@ -26,13 +27,15 @@ const DataTable = () => {
             <tbody>
                 {data.map((val, key) => {
                     if (val.amount && val.category) {
+                        const date1 = new Date(val.date);
+                        const date2 = date1.toDateString();
                         return (
                     <tr key={key}>
-                                <td>{val.date}</td>
+                                <td>{date2}</td>
                                 <td>{val.amount}</td>
                                 <td>{val.category}</td>
-                                <td><a>edit</a></td>
-                                <td onClick={() => deleteEntry(key)}>del</td>
+                                <td><Link to="/editentry" state={{ key: key }}>edit</Link></td>
+                                <td><Link to="/delete" state={{ key: key }}>del</Link></td>
                             </tr>
                         )
                     }

@@ -5,7 +5,9 @@ import NewEntry from './NewEntry';
 import Home from './Home'
 import Data from './Data';
 import EditEntries from './EditEntries'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import EditEntry from './EditEntry';
+import Delete from './Delete';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
             <Route path="/entry" element={<NewEntry />} />
             <Route path="/data" element={<Data />} />
             <Route path="/edit" element={<EditEntries />} />
+            <Route path="/editentry" element={<EditEntry />} />
+            <Route path="/delete" element={<Delete />} />
           </Routes>
         </Router>
   );
