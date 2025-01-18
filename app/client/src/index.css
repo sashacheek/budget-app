@@ -38,7 +38,7 @@ text-align: center;
   width: 80%;
   flex-direction: column;
   text-align: center;
-  row-gap: 40px;
+  row-gap: 20px;
 }
 
 .form-container {
@@ -48,6 +48,7 @@ text-align: center;
   flex-direction: column;
   text-align: center;
   row-gap: 40px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* buttons */
@@ -110,6 +111,18 @@ input {
 
 input, select, span, p, a, button {
   font-size: 16px;
+}
+
+.form-container label {
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  padding-bottom: 5px;
+  color: rgb(104, 94, 62, 0.5);
+}
+
+.form-container input {
+  width: 90%;
 }
 
 /* tables */
