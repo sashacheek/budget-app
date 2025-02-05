@@ -14,7 +14,7 @@ const DataTable = () => {
 
     return (
         <div className="data-container">
-                {data.map((val, key) => {
+                {data.slice().reverse().map((val, key) => {
                     if (val.amount && val.category) {
                         const date1 = new Date(val.date);
                         const date2 = date1.toDateString();
