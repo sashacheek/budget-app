@@ -57,7 +57,11 @@ text-align: center;
 
 .vertical-stretch {
   margin-top: 0vh;
-  margin-bottom: 1vh;
+  margin-bottom: 5vh;
+}
+
+.condensed {
+  row-gap: 10px;
 }
 
 /* buttons */
@@ -90,6 +94,10 @@ text-align: center;
   display: flex;
   flex-direction: row;
   column-gap: 10px;
+}
+
+.third-button {
+  flex-shrink: 2;
 }
 
 /* forms */
@@ -132,6 +140,10 @@ input, select, span, p, a, button {
 
 .form-container input {
   width: 90%;
+}
+
+.last-input {
+  margin-bottom: 30px;
 }
 
 /* tables */

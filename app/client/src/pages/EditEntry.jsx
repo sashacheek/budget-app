@@ -8,7 +8,7 @@ function EditEntry() {
     const { key } = location.state;
     
     // get data
-    const data = JSON.parse(localStorage.getItem("spendingData"))
+    const data = JSON.parse(localStorage.getItem("spendingData")).sort((a, b) => new Date(a.date) - new Date(b.date));
     const keyData = data[key];
     const dataAmount = keyData.amount;
     const dataCategory = keyData.category;
@@ -65,10 +65,19 @@ function EditEntry() {
         navigate("/edit");
     }
 
+    function deleteData() {
+        if (window.confirm("Are you sure? This will delete this entry permanently")) {
+            console.log(data[key]);
+            let newData = data.toSpliced(key, 1);
+            localStorage.setItem("spendingData", JSON.stringify(newData));
+            navigate("/edit");
+        }
+    }
+
     return (
         <div className="content-container">
-            <h1>Edit Entry Page</h1>
-            <form className="form-container">
+            <h1>Edit Entry</h1>
+            <form className="form-container condensed">
                 <div>
                     <label for="date">Date:</label>
                     <input id="date" type="date" value={date} onChange={changeDate}></input>
@@ -77,7 +86,7 @@ function EditEntry() {
                     <label for="amount">Amount:</label>
                     <input id="amount" type="number" value={amount} onChange={changeAmount}></input>
                 </div>
-                <div>
+                <div className="last-input">
                     <label for="category">Category:</label>
                     <div className="select-style">
                         <select id="category" name="category" value={category} onChange={changeCategory}>
@@ -89,7 +98,10 @@ function EditEntry() {
                     </div>
                 </div>
                 <button type="button" onClick={submitData} className="button-style">Submit</button>
-                <Link to="/edit" className="button-style">&larr; go back</Link>
+                <div className="two-buttons">
+                    <button type="button" onClick={deleteData} className="button-style button-small">delete</button>
+                    <Link to="/edit" className="button-style button-small">&larr; go back</Link>
+                </div>
             </form>
         </div>
     )

@@ -2,11 +2,12 @@ import React from "react";
 import PieWeek from "../charts/PieWeek";
 import PieMonth from "../charts/PieMonth";
 import { Link } from "react-router-dom";
+import DataMenu from '../components/DataMenu';
 
 function Data() {
 return (
-    <div className="content-container">
-        <h1>Data page</h1>
+    <div className="content-container vertical-stretch">
+        <DataMenu />
         <PieWeek />
         <PieMonth />
         <div>
