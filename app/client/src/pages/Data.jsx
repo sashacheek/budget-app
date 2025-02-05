@@ -10,8 +10,8 @@ return (
         <PieWeek />
         <PieMonth />
         <div>
-        <Link to="/edit" className="button-style button-small">Edit Data</Link>
-        <Link to="/" className="button-style button-small">&larr; go back</Link>
+            {/* <Link to="/edit" className="button-style button-small">Edit Data</Link> */}
+            <Link to="/edit" className="button-style button-small">&larr; go back</Link>
         </div>
     </ div>
 )

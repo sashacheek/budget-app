@@ -9,7 +9,7 @@ function Home() {
     <div className="content-container">
         <img src={logo} className="logo"></img>
         <Link className="button-style" to="/entry">Add Entry</Link>
-        <Link className="button-style" to="/data">View Data</Link>
+        <Link className="button-style" to="/edit">View Data</Link>
     </div>
 </div>
 );

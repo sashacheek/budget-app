@@ -24,9 +24,6 @@ function EditEntry() {
     const year = dataDate.getFullYear();
     const formattedDate = `${year}-${month}-${day}`
 
-    console.log(dataDate);
-    console.log(formattedDate);
-
     const [date, setDate] = React.useState(formattedDate);
     const [amount, setAmount] = React.useState(dataAmount);
     const [category, setCategory] = React.useState(dataCategory);

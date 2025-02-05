@@ -26,6 +26,10 @@ h1, h2, h3, h4 {
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+p {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 h1 {
 text-align: center;
 }
@@ -49,6 +53,11 @@ text-align: center;
   text-align: center;
   row-gap: 40px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.vertical-stretch {
+  margin-top: 0vh;
+  margin-bottom: 1vh;
 }
 
 /* buttons */
@@ -140,4 +149,59 @@ input, select, span, p, a, button {
 .table-style td {
   padding: 5px;
   border: 2px solid rgb(104, 94, 62);
+}
+
+/* data table */
+
+.data-container {
+  border-top: 1px solid rgb(221, 214, 199);
+  border-bottom: 1px solid rgb(221, 214, 199);
+}
+
+.data-container .row {
+  border-top: 1px solid rgb(221, 214, 199);
+  border-bottom: 1px solid rgb(221, 214, 199);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  text-decoration: none;
+  color: rgb(104, 94, 62);
+}
+
+.data-container .row:hover, .data-container .row:active {
+  background-color: rgb(221, 214, 199);
+}
+
+.data-container .row-left, .data-container .row-right {
+  padding: 5px 0;
+}
+
+.data-container .row-left {
+  text-align: left;
+  display: flex;
+  row-gap: 3px;
+  flex-direction: column;
+}
+
+.data-container .row-left p:nth-child(1) {
+  font-weight: bold;
+}
+
+.data-container .row-left p:nth-child(2) {
+  font-size: 14px;
+}
+
+.data-container .row-right {
+  text-align: right;
+  margin: auto 0;
+}
+
+/* menu */
+
+.sticky-menu {
+  position: sticky;
+  top: 0;
+  background-color: rgb(255, 248, 239);
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  margin-bottom: -2vh;
 }

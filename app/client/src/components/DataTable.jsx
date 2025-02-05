@@ -13,8 +13,27 @@ const DataTable = () => {
     }
 
     return (
-        <div className="table-container">
-        <table className="table-style">
+        <div className="data-container">
+                {data.map((val, key) => {
+                    if (val.amount && val.category) {
+                        const date1 = new Date(val.date);
+                        const date2 = date1.toDateString();
+                        return (
+                    <Link className="row" key={key} to="/editentry" state={{ key: key }}>
+                    {/* <div className="row" key={key}> */}
+                        <div className="row-left">
+                            <p>{val.category.toUpperCase()}</p>
+                            <p>{date2}</p>
+                        </div>
+                        <div className="row-right">
+                            <p>${val.amount}</p>
+                        </div>
+                        </Link>
+                        )
+                    }
+                })}
+            
+        {/* <table className="table-style">
             <thead>
                 <tr>
                     <td>DATE</td>
@@ -41,7 +60,7 @@ const DataTable = () => {
                     }
                 })}
             </tbody>
-        </table>
+        </table> */}
         </div>
     )
 }
