@@ -5,7 +5,7 @@
 
 export function getWeekData() {
 
-const data = JSON.parse(localStorage.getItem("spendingData"));
+const data = JSON.parse(localStorage.getItem("spendingData"))  || [];
 
 const categories = {};
 let totalAmount = 0;

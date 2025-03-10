@@ -22,11 +22,11 @@ body {
 
 /* headings */
 
-h1, h2, h3, h4 {
+/* h1, h2, h3, h4 {
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+} */
 
-p {
+h1, h2, h3, h4, p {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -124,6 +124,7 @@ input {
   font-weight: bold;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   border: 3px solid rgb(221, 214, 199);
+  width: auto;
 }
 
 input, select, span, p, a, button {
@@ -136,10 +137,6 @@ input, select, span, p, a, button {
   margin-left: 10%;
   padding-bottom: 5px;
   color: rgb(104, 94, 62, 0.5);
-}
-
-.form-container input {
-  width: 90%;
 }
 
 .last-input {
@@ -216,4 +213,43 @@ input, select, span, p, a, button {
   padding-top: 1vh;
   padding-bottom: 2vh;
   margin-bottom: -2vh;
+}
+
+/* category */
+.category-style {
+  position: relative;
+}
+
+.category-style input {
+  width: 100%;
+    box-sizing: border-box;
+}
+
+.category-check {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 10px;
+  background-color: rgb(255, 248, 239);
+  /* border: 3px solid rgb(221, 214, 199); */
+  border: none;
+  border-radius: 10px;
+}
+
+/* .category-check:hover {
+  background-color: rgb(221, 214, 199);
+} */
+
+/* .category-check:click {
+  width: 150%;
+} */
+
+.category-container {
+  display: none;
+}
+
+#category-options {
+  display: none;
 }
